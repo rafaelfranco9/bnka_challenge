@@ -22,6 +22,7 @@ mixin _$LoginState {
   String? get emailError => throw _privateConstructorUsedError;
   String? get passwordError => throw _privateConstructorUsedError;
   bool get formIsValid => throw _privateConstructorUsedError;
+  User? get loggedUser => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -42,7 +43,10 @@ abstract class $LoginStateCopyWith<$Res> {
       String? password,
       String? emailError,
       String? passwordError,
-      bool formIsValid});
+      bool formIsValid,
+      User? loggedUser});
+
+  $UserCopyWith<$Res>? get loggedUser;
 }
 
 /// @nodoc
@@ -66,6 +70,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? emailError = freezed,
     Object? passwordError = freezed,
     Object? formIsValid = null,
+    Object? loggedUser = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -92,7 +97,25 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.formIsValid
           : formIsValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      loggedUser: freezed == loggedUser
+          ? _value.loggedUser
+          : loggedUser // ignore: cast_nullable_to_non_nullable
+              as User?,
     ) as $Val);
+  }
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get loggedUser {
+    if (_value.loggedUser == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.loggedUser!, (value) {
+      return _then(_value.copyWith(loggedUser: value) as $Val);
+    });
   }
 }
 
@@ -110,7 +133,11 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       String? password,
       String? emailError,
       String? passwordError,
-      bool formIsValid});
+      bool formIsValid,
+      User? loggedUser});
+
+  @override
+  $UserCopyWith<$Res>? get loggedUser;
 }
 
 /// @nodoc
@@ -132,6 +159,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? emailError = freezed,
     Object? passwordError = freezed,
     Object? formIsValid = null,
+    Object? loggedUser = freezed,
   }) {
     return _then(_$LoginStateImpl(
       status: null == status
@@ -158,6 +186,10 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.formIsValid
           : formIsValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      loggedUser: freezed == loggedUser
+          ? _value.loggedUser
+          : loggedUser // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 }
@@ -171,7 +203,8 @@ class _$LoginStateImpl implements _LoginState {
       this.password,
       this.emailError,
       this.passwordError,
-      this.formIsValid = false});
+      this.formIsValid = false,
+      this.loggedUser});
 
   @override
   @JsonKey()
@@ -187,10 +220,12 @@ class _$LoginStateImpl implements _LoginState {
   @override
   @JsonKey()
   final bool formIsValid;
+  @override
+  final User? loggedUser;
 
   @override
   String toString() {
-    return 'LoginState(status: $status, email: $email, password: $password, emailError: $emailError, passwordError: $passwordError, formIsValid: $formIsValid)';
+    return 'LoginState(status: $status, email: $email, password: $password, emailError: $emailError, passwordError: $passwordError, formIsValid: $formIsValid, loggedUser: $loggedUser)';
   }
 
   @override
@@ -207,12 +242,14 @@ class _$LoginStateImpl implements _LoginState {
             (identical(other.passwordError, passwordError) ||
                 other.passwordError == passwordError) &&
             (identical(other.formIsValid, formIsValid) ||
-                other.formIsValid == formIsValid));
+                other.formIsValid == formIsValid) &&
+            (identical(other.loggedUser, loggedUser) ||
+                other.loggedUser == loggedUser));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status, email, password,
-      emailError, passwordError, formIsValid);
+      emailError, passwordError, formIsValid, loggedUser);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -230,7 +267,8 @@ abstract class _LoginState implements LoginState {
       final String? password,
       final String? emailError,
       final String? passwordError,
-      final bool formIsValid}) = _$LoginStateImpl;
+      final bool formIsValid,
+      final User? loggedUser}) = _$LoginStateImpl;
 
   @override
   LoginStatus get status;
@@ -244,6 +282,8 @@ abstract class _LoginState implements LoginState {
   String? get passwordError;
   @override
   bool get formIsValid;
+  @override
+  User? get loggedUser;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

@@ -1,3 +1,4 @@
+import 'package:auth_client/auth_client.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_state.freezed.dart';
@@ -23,5 +24,6 @@ abstract class LoginState with _$LoginState {
     String? emailError,
     String? passwordError,
     @Default(false) bool formIsValid,
+    User? loggedUser,
   }) = _LoginState;
 }

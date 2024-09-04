@@ -1,10 +1,14 @@
-import 'package:bnka_challenge/constants/constants.dart';
+import 'package:auth_client/auth_client.dart';
 import 'package:bnka_challenge/helpers/form_validators.dart';
 import 'package:bnka_challenge/login/login.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(const LoginState());
+  LoginCubit({required AuthClient authClient})
+      : _authClient = authClient,
+        super(const LoginState());
+
+  final AuthClient _authClient;
 
   bool _emailIsDirty = false;
   bool _passwordIsDirty = false;
@@ -26,12 +30,8 @@ class LoginCubit extends Cubit<LoginState> {
 
     try {
       emit(state.copyWith(status: LoginStatus.loading));
-      await Future.delayed(const Duration(seconds: 2), () {
-        final validCredentials =
-            state.email == kLoginEmail && state.password == kLoginPassword;
-        if (!validCredentials) throw Exception();
-      });
-      emit(state.copyWith(status: LoginStatus.success));
+      final user = await _authClient.login(state.email!, state.password!);
+      emit(state.copyWith(status: LoginStatus.success, loggedUser: user));
     } catch (e) {
       emit(state.copyWith(status: LoginStatus.error));
       emit(state.copyWith(status: LoginStatus.initial));
