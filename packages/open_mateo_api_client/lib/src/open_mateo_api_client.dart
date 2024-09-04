@@ -1,16 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:open_mateo_api_client/src/resources/city/city.dart';
+import 'package:open_mateo_api_client/src/resources/resources.dart';
 
 class OpenMateoApiClient {
-  OpenMateoApiClient({Dio? dio})
-      : _dio = dio ??
-            Dio(
-              BaseOptions(
-                baseUrl: 'https://geocoding-api.open-meteo.com/v1',
-              ),
-            );
+  OpenMateoApiClient({Dio? dio}) : _dio = dio;
 
-  final Dio _dio;
+  final Dio? _dio;
 
   CityResource get cityResource => CityResource(dio: _dio);
+
+  WeatherResource get weatherResource => WeatherResource(dio: _dio);
 }

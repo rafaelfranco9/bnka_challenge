@@ -5,7 +5,11 @@ import 'package:dio/dio.dart';
 import 'city.dart';
 
 class CityResource {
-  CityResource({required Dio dio}) : _dio = dio;
+  CityResource({Dio? dio})
+      : _dio = dio ??
+            Dio(
+              BaseOptions(baseUrl: 'https://geocoding-api.open-meteo.com/v1'),
+            );
 
   final Dio _dio;
   static const _path = '/search';
