@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:open_mateo_api_client/src/resources/weather/model/weather.dart';
 
@@ -11,7 +9,7 @@ class WeatherResource {
   final Dio _dio;
   static const _path = '/forecast';
 
-  Future<Weather?> fetchWeatherByCoordinates({
+  Future<Weather> fetchWeatherByCoordinates({
     required double latitude,
     required double longitude,
   }) async {
@@ -28,11 +26,11 @@ class WeatherResource {
 
       if (response.statusCode == 200 && response.data != null) {
         return Weather.fromJson(response.data!);
+      } else {
+        throw Exception('Failed to fetch weather');
       }
     } catch (e) {
-      log(e.toString());
+      rethrow;
     }
-
-    return null;
   }
 }

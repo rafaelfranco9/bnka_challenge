@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 
 import 'city.dart';
@@ -14,7 +12,7 @@ class CityResource {
   final Dio _dio;
   static const _path = '/search';
 
-  Future<City?> fetchCityByName(String name) async {
+  Future<City> fetchCityByName(String name) async {
     try {
       final response = await _dio.get<Map<String, dynamic>>(
         _path,
@@ -30,10 +28,11 @@ class CityResource {
         final results = response.data!['results'] as List;
         final data = results.cast<Map<String, dynamic>>();
         return City.fromJson(data.first);
+      } else {
+        throw Exception('Failed to fetch city');
       }
     } catch (e) {
-      log(e.toString());
+      rethrow;
     }
-    return null;
   }
 }
