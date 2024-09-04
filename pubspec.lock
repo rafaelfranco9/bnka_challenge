@@ -461,7 +461,7 @@ packages:
     source: hosted
     version: "2.0.2"
   open_mateo_api_client:
-    dependency: "direct main"
+    dependency: transitive
     description:
       path: "packages/open_mateo_api_client"
       relative: true
@@ -704,6 +704,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  weather_repository:
+    dependency: "direct main"
+    description:
+      path: "packages/weather_repository"
+      relative: true
+    source: path
+    version: "0.1.0+1"
   web:
     dependency: transitive
     description:
