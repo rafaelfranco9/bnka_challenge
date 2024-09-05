@@ -1,11 +1,5 @@
 # Bnka Challenge
 
-
-[![License: MIT][license_badge]][license_link]
-
-
-bnka Flutter Challenge
-
 ---
 
 ## Getting Started 🚀
@@ -33,6 +27,15 @@ _\*Bnka Challenge works on iOS, Android, Web, and Windows._
 
 ---
 
+## Credentials
+
+In order to login, use the following credentials:
+```sh
+email: rafael@gmail.com
+password: 123456789
+```
+
+---
 ## Running Tests 🧪
 
 To run all unit and widget tests use the following command:
