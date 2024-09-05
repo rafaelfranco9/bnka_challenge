@@ -53,4 +53,16 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       emit(state.copyWith(status: FavoritesStatus.error));
     }
   }
+
+  Future<void> deleteByCityName(String city) async {
+    final updatedFavorites = state.favorites.entries
+        .where((entry) => entry.value.city != city)
+        .toList();
+
+    emit(
+      state.copyWith(
+        favorites: Map.fromEntries(updatedFavorites),
+      ),
+    );
+  }
 }
