@@ -42,7 +42,7 @@ class LoginView extends StatelessWidget {
               TextField(
                 onChanged: cubit.onPasswordChanged,
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: 'Contraseña',
                   errorText: state.passwordError,
                   filled: true,
                   fillColor: Colors.grey.shade200,
@@ -66,7 +66,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Login',
+                  'Iniciar sesión',
                   style: TextStyle(color: Colors.black),
                 ),
               ),

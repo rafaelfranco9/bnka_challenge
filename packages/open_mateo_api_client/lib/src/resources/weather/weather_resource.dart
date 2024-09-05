@@ -21,6 +21,7 @@ class WeatherResource {
           'longitude': longitude,
           'current': 'temperature_2m,relative_humidity_2m,wind_speed_10m',
           'hourly': 'temperature_2m,relative_humidity_2m,wind_speed_10m',
+          'forecast_days': '3',
         },
       );
 
