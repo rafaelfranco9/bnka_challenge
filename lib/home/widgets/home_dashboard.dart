@@ -4,6 +4,7 @@ import 'package:bnka_challenge/home/widgets/city_item.dart';
 import 'package:bnka_challenge/home/widgets/section_with_button.dart';
 import 'package:bnka_challenge/home/widgets/stats_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_repository/weather_repository.dart';
 
@@ -30,7 +31,7 @@ class HomeDashboard extends StatelessWidget {
             citiesQuantity: citiesQuantity,
             lowestTemperature: lowestTemperature!,
             highestTemperature: highestTemperature!,
-          ),
+          ).animate().fadeIn(duration: 400.ms).moveY(begin: 20),
           const SizedBox(height: 4),
           const Divider(),
           const SizedBox(height: 4),
@@ -69,7 +70,10 @@ class HomeDashboard extends StatelessWidget {
                       },
                     );
                   },
-                ),
+                )
+                  .animate(delay: 400.ms)
+                  .fadeIn(duration: 400.ms)
+                  .moveY(begin: 20),
         ),
       ],
     );

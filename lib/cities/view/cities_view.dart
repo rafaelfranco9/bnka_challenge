@@ -10,7 +10,7 @@ class CitiesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      title: 'Cities',
+      title: 'Ciudades',
       body: BlocBuilder<FavoritesCubit, FavoritesState>(
         builder: (context, state) {
           return ListView(

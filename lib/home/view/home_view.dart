@@ -1,4 +1,5 @@
 import 'package:bnka_challenge/favorites/bloc/bloc.dart';
+import 'package:bnka_challenge/home/widgets/dashboard_failure.dart';
 import 'package:bnka_challenge/home/widgets/home_dashboard.dart';
 import 'package:bnka_challenge/shared/app_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +20,8 @@ class HomeView extends StatelessWidget {
             FavoritesStatus.loading =>
               const Center(child: CircularProgressIndicator()),
             FavoritesStatus.success => HomeDashboard(cities: cities),
-            FavoritesStatus.error => const Center(
-                child: Text('Failed to load favorites'),
+            FavoritesStatus.error => DashboardFailure(
+                onRetry: context.read<FavoritesCubit>().init,
               ),
           };
         },
