@@ -5,12 +5,14 @@ class HomeStatsCard extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.helperText,
+    this.color = Colors.blueAccent,
     super.key,
   });
 
   final String title;
   final String subtitle;
   final String helperText;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class HomeStatsCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: color,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
@@ -33,6 +35,7 @@ class HomeStatsCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
                 maxLines: 1,
                 textAlign: TextAlign.center,
@@ -45,19 +48,25 @@ class HomeStatsCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
+                  color: Colors.white,
                 ),
                 maxLines: 1,
                 textAlign: TextAlign.center,
               ),
             ),
             const Spacer(),
-            Text(
-              helperText,
-              style: const TextStyle(
-                fontSize: 12,
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                helperText,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
+                maxLines: 1,
+                textAlign: TextAlign.center,
               ),
-              maxLines: 1,
-              textAlign: TextAlign.center,
             ),
           ],
         ),

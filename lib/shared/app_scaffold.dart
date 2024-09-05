@@ -11,7 +11,7 @@ class AppScaffold extends StatelessWidget {
     return Scaffold(
       appBar: title != null
           ? AppBar(
-              backgroundColor: Colors.cyan,
+              backgroundColor: Colors.blueAccent,
               title: Text(title!),
             )
           : null,

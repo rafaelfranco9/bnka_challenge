@@ -27,18 +27,21 @@ class CityItem extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              WeatherItem.temperature(cityWeather.currentWeather.temperature),
-              const SizedBox(width: 8),
-              WeatherItem.wind(cityWeather.currentWeather.windSpeed),
-              const SizedBox(width: 8),
-              WeatherItem.humidity(cityWeather.currentWeather.humidity),
-            ],
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Row(
+              children: [
+                WeatherItem.temperature(cityWeather.currentWeather.temperature),
+                const SizedBox(width: 8),
+                WeatherItem.wind(cityWeather.currentWeather.windSpeed),
+                const SizedBox(width: 8),
+                WeatherItem.humidity(cityWeather.currentWeather.humidity),
+              ],
+            ),
           ),
           const SizedBox(height: 2),
           const Text(
-            'Tap to see forecast',
+            'Ver pronóstico',
             style: TextStyle(
               fontSize: 12,
               color: Colors.blueAccent,

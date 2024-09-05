@@ -25,6 +25,7 @@ class CitiesView extends StatelessWidget {
                   }
                 },
                 trailing: Icon(
+                  color: isFavorite ? Colors.blueAccent : Colors.grey,
                   isFavorite
                       ? Icons.favorite_rounded
                       : Icons.favorite_outline_rounded,

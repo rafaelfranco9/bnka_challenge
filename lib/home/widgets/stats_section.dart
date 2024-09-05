@@ -23,15 +23,16 @@ class StatsSection extends StatelessWidget {
           child: HomeStatsCard(
             title: lowestTemperature.currentWeather.temperature,
             subtitle: lowestTemperature.city,
-            helperText: 'Lowest',
+            helperText: 'Mas Baja',
           ),
         ),
         const SizedBox(width: 10),
         Expanded(
           child: HomeStatsCard(
             title: citiesQuantity.toString(),
-            subtitle: 'Cities',
-            helperText: 'Favorites',
+            subtitle: 'Ciudades',
+            helperText: 'Favoritas',
+            color: Colors.grey,
           ),
         ),
         const SizedBox(width: 10),
@@ -39,7 +40,8 @@ class StatsSection extends StatelessWidget {
           child: HomeStatsCard(
             title: highestTemperature.currentWeather.temperature,
             subtitle: highestTemperature.city,
-            helperText: 'Highest',
+            helperText: 'Mas Alta',
+            color: Colors.orange,
           ),
         ),
       ],
